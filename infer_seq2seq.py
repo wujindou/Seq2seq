@@ -3,14 +3,14 @@ import numpy as np
 import random
 import time
 import sys
-sys.path.append('/search/odin/jdwu/faster_bert/mrc-toolkit/')
+sys.path.append('faster_bert/mrc-toolkit/')
 from model_seq2seq_contrib import Seq2seq
 from train_seq2seq import load_data, get_eval_batch
 from train_seq2seq import *
 from train_seq2seq import Config
 # from model_seq2seq import Seq2seq
 from sogou_mrc.libraries import tokenization
-vocab_file = '/search/odin/jdwu/chinese_L-12_H-768_A-12/vocab.txt'
+vocab_file = 'chinese_L-12_H-768_A-12/vocab.txt'
 tokenizer = tokenization.FullTokenizer(vocab_file=vocab_file, do_lower_case=True)
 
 tf_config = tf.ConfigProto(allow_soft_placement=True)
@@ -20,11 +20,7 @@ model_path = "checkpoint3/model.ckpt"
 
 if __name__ == "__main__":
 	print("(1)load data......")
-	# docs_source, docs_target = load_data("/Users/apple/Downloads/yesno_project/dataset/train_data_question_pair")
-	#eval_doc_source,eval_doc_target = load_data('/search/odin/jdwu/faster_bert/seq2seq_dataset/dev_data_question_pair')
-	eval_doc_source,eval_doc_target = load_data('/search/odin/jdwu/faster_bert/seq2seq_dataset/test_yesno_query.txt')
-	#eval_doc_source,eval_doc_target = load_data('/search/odin/jdwu/faster_bert/seq2seq_dataset/test_data_500_question_pair')
-	#eval_doc_source,eval_doc_target = load_data('/search/odin/jdwu/faster_bert/seq2seq_dataset/dureader_question_pair')
+	eval_doc_source,eval_doc_target = load_data('seq2seq_dataset/test_yesno_query.txt')
 
 	print("(2) build model......")
 	config = Config()

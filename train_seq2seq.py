@@ -1,6 +1,6 @@
 import tensorflow as tf
 import sys
-sys.path.append('/search/odin/jdwu/faster_bert/mrc-toolkit/')
+sys.path.append('faster_bert/mrc-toolkit/')
 import numpy as np
 import random
 import time
@@ -8,7 +8,7 @@ from model_seq2seq_contrib import Seq2seq
 import jieba
 import sys
 from sogou_mrc.libraries import tokenization
-vocab_file = '/search/odin/jdwu/chinese_L-12_H-768_A-12/vocab.txt'
+vocab_file = 'chinese_L-12_H-768_A-12/vocab.txt'
 tokenizer = tokenization.FullTokenizer(vocab_file=vocab_file, do_lower_case=True)
 
 import sys
@@ -30,7 +30,7 @@ class Config(object):
 	target_vocab_size = None
 
 
-def load_data(path='/Users/apple/Downloads/yesno_project/dataset/train_data_question_pair'):
+def load_data(path='train_data_question_pair'):
 	docs_source = []
 	docs_target = []
 	with open(path,'r',encoding="utf-8") as lines:
@@ -108,8 +108,8 @@ def get_eval_batch(docs_source,docs_target,batch_size=16):
 if __name__ == "__main__":
 
 	print("(1)load data......")
-	docs_source, docs_target = load_data('/search/odin/jdwu/faster_bert/seq2seq_dataset/train_data_question_pair')
-	eval_doc_source,eval_doc_target = load_data('/search/odin/jdwu/faster_bert/seq2seq_dataset/dev_data_question_pair')
+	docs_source, docs_target = load_data('seq2seq_dataset/train_data_question_pair')
+	eval_doc_source,eval_doc_target = load_data('seq2seq_dataset/dev_data_question_pair')
 
 	print("(2) build model......")
 	config = Config()

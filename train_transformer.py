@@ -6,7 +6,7 @@ from model_transformer import Transformer
 import jieba
 import sys
 from sogou_mrc.libraries import tokenization
-vocab_file = '/search/odin/jdwu/chinese_L-12_H-768_A-12/vocab.txt'
+vocab_file = 'chinese_L-12_H-768_A-12/vocab.txt'
 tokenizer = tokenization.FullTokenizer(vocab_file=vocab_file, do_lower_case=True)
 
 import sys
@@ -32,7 +32,7 @@ class Config(object):
 	target_vocab_size = None
 
 
-def load_data(path='/Users/apple/Downloads/yesno_project/dataset/train_data_question_pair'):
+def load_data(path='/train_data_question_pair'):
 	docs_source = []
 	docs_target = []
 	with open(path,'r',encoding="utf-8") as lines:
